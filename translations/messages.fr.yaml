@@ -1,0 +1,87 @@
+vich_uploader.form_label.delete_confirm: 'Supprimer ?'
+vich_uploader.link.download: Télécharger
+recipeForm.title: Titre
+recipeForm.content: Contenu
+recipeForm.imageName: 'Image de la vidéo'
+recipeForm.duration: 'Durée en minutes'
+recipeForm.save: Enregistrer
+navBar.home: Accueil
+navBar.recipes: 'Liste des vidéos'
+navBar.singUp: "S'inscrire"
+navBar.login: 'Se connecter'
+navBar.addRecipe: 'Ajouter une vidéo'
+navBar.account: 'Mon compte'
+navBar.logout: 'Se déconnecter'
+navBar.video: 'Accueil'
+navBar.addVideo: 'Ajouter une vidéo'
+registrationForm.title: Inscription
+registrationForm.firstname: Prénom
+registrationForm.lastname: 'Nom de famille'
+registrationForm.email: Email
+registrationForm.password: 'Mot de passe'
+registrationForm.agreeTerms: "J'accepte les termes et conditions"
+enregisterTempletButton: "S'inscrire"
+recipeController.emailNotVerified: 'Vous devez vérifier votre compte avant de créer des vidéos !'
+recipeController.edit.userRecipe1: 'Vous devez être'
+recipeController.edit.userRecipe2: 'pour modifier cette vidéo !'
+recipeController.edit.mustLogin: 'Vous devez vous connecter pour modifier une vidéo !'
+recipeController.edit.confirmEmail: 'Vous devez vérifier votre compte avant de modifier des vidéos !'
+recipeController.edit.success: 'La vidéo a été mise à jour avec succès !'
+recipeController.create.confirmEmail: 'Vous devez vérifier votre compte avant de créer des vidéos !'
+recipeController.create.mustLogin: 'Vous devez vous connecter pour créer une vidéo !'
+recipeController.success.createRecipe1: 'Votre vidéo a été créée avec succès !'
+recipeController.success.createRecipe2: 'Date de création du compte'
+'You are logged in as': 'Vous êtes connecté en tant que'
+'Please sign in': 'Veuillez vous connecter'
+'Forgot your password?': 'Mot de passe oublié ?'
+'Sign in': 'Se connecter'
+'Not registered yet?': 'Pas encore inscrit ?'
+'Create an accout': 'Créer un compte'
+# accountShow.profile: 'Mon profil'
+accountShow.EditAccount: 'Modifier le compte'
+accountShow.Accountcreatedon: 'Compte créé le'
+'Account successfuly updated !': 'Compte mis à jour avec succès !'
+'Apply changes': 'Appliquer les modifications'
+userFrom.firstname: Prénom
+userFrom.lastname: 'Nom de famille'
+accountController.show.mustLogin: 'Vous devez vous connecter pour voir votre compte !'
+accountController.edit.mustLogin: 'Vous devez vous connecter pour modifier votre compte !'
+account.show.profile: 'Mon profil'
+account.show.edit_account: 'Modifier le compte'
+account.show.account_created_on: 'Compte créé le'
+account.edit.firstname: Prénom
+account.edit.lastname: 'Nom '
+account.edit.email: Email
+account.edit.submit: 'Appliquer les modifications'
+videoController.emailNotVerified: 'Vous devez vérifier votre compte avant de créer des vidéos !'
+videoController.edit.confirmEmail: 'Vous devez vérifier votre compte avant de modifier des vidéos !'
+videoController.edit.userVideo1: 'Vous devez être le propriétaire de cette vidéo pour la modifier !'
+videoController.edit.userVideo2: 'pour modifier cette vidéo !'
+videoController.edit.mustLogin: 'Vous devez vous connecter pour modifier une vidéo !'
+videoController.edit.success: 'La vidéo a été mise à jour avec succès !'
+videoController.create.mustLogin: 'Vous devez vous connecter pour créer une vidéo !'
+videoController.create.confirmEmail: 'Vous devez vérifier votre compte avant de créer des vidéos !'
+videoController.success.createVideo1: 'Votre vidéo a été créée avec succès !'
+videoController.success.createVideo2: 'Date de création du compte'
+videoController.delete.confirmEmail: 'Êtes-vous sûr de vouloir supprimer cette vidéo ?'
+videoController.delete.success: 'La vidéo a été supprimée avec succès !'
+videoForm.title: Titre
+videoForm.videoLink: 'Video Link'
+videoForm.description: Description
+registration.form.email: Email
+registration.form.password: 'Mot de passe'
+registration.form.agreeTerms: "J'accepte les termes et conditions"
+registration.form.firstname: Prénom
+registration.form.lastname: 'Nom de famille'
+registration.form.submit: "S'inscrire"
+security.login.username: Email
+security.login.password: 'Mot de passe'
+security.login.remember_me: 'Se souvenir de moi'
+security.login.submit: 'Se connecter'
+security.login.forgot_password: 'Mot de passe oublié ?'
+security.login.not_registered: 'Pas encore inscrit ?'
+security.login.create_account: 'Créer un compte'
+'Agree terms': "J'accepte les termes et conditions"
+Password: 'Mot de passe'
+accountShow.profil: 'Mon profil'
+welcome.videoListPart1: Bienvenue dans la liste des vidéos

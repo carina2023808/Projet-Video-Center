@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}#{{ video.id }} {% endblock %}
+{% block body %}
+
+
+
+<h1 align="center">Modifier le Video</h1>
+   <div class = "row">
+        <div class= "col-md-6 mx-auto">
+
+            {{ form(monForm)}}
+            </div>
+    </div>
+
+{% endblock %}

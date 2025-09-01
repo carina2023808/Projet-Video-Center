@@ -1,0 +1,14 @@
+knp_paginator:
+  page_range: 5 # número de links exibidos no menu de paginação
+  default_options:
+    page_name: page # nome do parâmetro de página
+    sort_field_name: sort # nome do parâmetro de campo de ordenação
+    sort_direction_name: direction # nome do parâmetro de direção de ordenação
+    distinct: true # garante resultados distintos
+    filter_field_name: filterField # nome do parâmetro de campo de filtro
+    filter_value_name: filterValue # nome do parâmetro de valor de filtro
+  template:
+   # template de paginação
+    pagination: "@KnpPaginator/Pagination/bootstrap_v5_pagination.html.twig"   # template de paginação
+    sortable: "@KnpPaginator/Pagination/sortable_link.html.twig" # template de ordenação
+    filtration: "@KnpPaginator/Pagination/filtration.html.twig" # template de filtros

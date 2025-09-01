@@ -1,0 +1,18 @@
+{# <div class="container " align= "center">
+   <nav   class="navbar navbar-expand-md  mb-4 justify-content-sm-center" >
+            <a class="navbar-brand" href={{ url('home') }}>Videos</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+           <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {{app.current_route == 'home' ? 'active' : ''}} " href={{ url("home") }}>{{ 'navBar.home' |trans }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{app.current_route starts with 'app_video_'  ? 'active' : ''}}" href={{ url('app_video_index') }}>{{ 'navBar.videos' |trans }}</a>
+                    </li>
+                </ul>
+          </div>
+        </nav>
+   </div> #}

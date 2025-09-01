@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ path('app_video_index') }}">
+            <img src="https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2021/06/1727_B5BD886FCC30244B.jpg?w=419&h=283&crop=0" width="130" height="60" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample03">
+            <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                <li class="nav-item">
+                    <a class="nav-link {{ app.current_route == 'app_video_index' ? 'active' : '' }}"
+                       href={{ path('app_video_index') }}>{{ "navBar.video"|trans }}</a>
+                </li>
+
+                {% if app.user %}
+                    {% if app.user.isVerified() %}
+                        <li class="nav-item">
+                            <a class="nav-link {{ app.current_route == 'app_video_create' ? 'active' : '' }}"
+                               href={{ path('app_video_create') }}>{{ 'navBar.addVideo'|trans }}</a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link {{ app.current_route == 'app_account' ? 'active' : '' }}"
+                           href={{ path('app_account') }}>{{ 'navBar.account'|trans }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_logout') }}">{{ 'navBar.logout'|trans }}</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link {{ app.current_route == 'app_register' ? 'active' : '' }}"
+                           href={{ path('app_register') }}>{{ 'navBar.singUp'|trans }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ app.current_route == 'app_login' ? 'active' : '' }}"
+                           href={{ path('app_login') }}>{{ 'navBar.login'|trans }}</a>
+                    </li>
+                {% endif %}
+            </ul>
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                    {% if app.request.locale == 'en' %}
+                        <span class="flag">🇬🇧</span> English
+                    {% else %}
+                        <span class="flag">🇫🇷</span> Français
+                    {% endif %}
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'),
+                            app.request.attributes.get('_route_params')|merge({'_locale': 'en'})) }}">
+                            <span class="flag">🇬🇧</span> English
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'),
+                            app.request.attributes.get('_route_params')|merge({'_locale': 'fr'})) }}">
+                            <span class="flag">🇫🇷</span> Français
+                        </a>
+                    </li>
+                </ul>
+            </div
+        </div>
+    </div>
+</nav>
