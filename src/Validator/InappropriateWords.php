@@ -12,7 +12,7 @@ final class InappropriateWords extends Constraint
     // You can use #[HasNamedArguments] to make some constraint options required.
     // All configurable options must be passed to the constructor.
     public function __construct(
-        public array $listWords = ["merde","wesh","connard", "imbécile"],
+        public array $listWords = ["callypige","shit"],
         public string $message = 'The contains an anappropriate word."{{ inappropriateWord }}". ',
         public string $mode = 'strict',
         ?array $groups = null,

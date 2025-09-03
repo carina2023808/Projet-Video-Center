@@ -3,7 +3,7 @@
 {% block title 'Liste de recettes' %}
 
 {% block body %}
-    <<h1 class="text-center">{{ "welcome.videoListPart1"|trans }} ({{ videoTotal }})</h1>
+    <h1 class="text-center">{{ "welcome.videoListPart1"|trans }} ({{ videoTotal }})</h1>
 
     <div class="container text-center">
         {% include "layouts/partials/_search_data.html.twig" with { form: form } only %}
@@ -12,9 +12,15 @@
                 <div class="card max-w-sm col-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 my-8 mr-4 mainDiv" data-type="post">
                     <h2><a href={{ path('app_video_show', {id: video.id}) }}>{{ video.title|u.truncate(20, '...', true) }}</a></h2>
 
-                    <iframe src={{video.videoLink}}  ></iframe>
+                    <iframe  src={{video.videoLink}}  ></iframe>
                     <p>By {{ video.user.firstname }} {{ video.user.lastname }}</p>
                     <p>Submitted {{ video.createdAt|ago }}</p>
+                    <p>{{ video.description|u.truncate(100, '...', true) }}</p>
+                    {% if video.premiumVideo %}
+                        <span>⭐</span>
+                    {# {% else %}
+                        <span class="badge bg-success text-dark">Gratuit</span> #}
+                    {% endif %}
                 </div>
             {% else %}
                 <p>Pas encore de video</p>

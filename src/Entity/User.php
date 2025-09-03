@@ -45,7 +45,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
-    #[Assert\Length(min:3, max:70)]
+
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank()]
@@ -194,6 +194,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->isVerified = $isVerified;
         return $this;
     }
+
+    
 
     #[Vich\UploadableField(mapping: 'users', fileNameProperty: 'imageName', size: 'imageSize')]
     private ?File $imageFile = null;

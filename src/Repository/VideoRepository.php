@@ -27,43 +27,35 @@ class VideoRepository extends ServiceEntityRepository
          *cette methode permet de recuperer toutes les recettes qui ont une duree inferieure ou egale a la duree passee en parametre
          */
 
-    //    public function findRecipeDurationLowerThan(int $duration): array
-    //    {
-    //        return $this->createQueryBuilder('r')/* esse methodo vem do ServiceEntityRepository herda da classe pais*/
-    //            ->andWhere('r.duration <= :duration')
-    //            ->setParameter('duration', $duration)
-    //            ->orderBy('r.duration', 'ASC')
-    //            ->getQuery()
-    //            ->getResult()
+   
 
-    //        ;
-    //    }
+    /**
+     *
+     * @param SearchData $searchData
+     * @return PaginationInterface
+     */
 
-       public function findBySeach(SearchData $searchData): PaginationInterface
+       public function findBySearch(SearchData $searchData): PaginationInterface
        {
 
-        $queryBuilder =$this->createQueryBuilder('r')
+        $data =$this->createQueryBuilder('r')
         ->addOrderBy('r.createdAt', 'DESC');
 
-        if (!empty($searchData->q))
-            {
-            $queryBuilder
+        if (!empty($searchData->q)){
+            $data = $data
                 ->andWhere('r.title LIKE :q')
                ->setParameter('q', "%{$searchData->q}%");
 
         }
 
-    //    $queryBuilder
-    //     ->getQuery()
-    //     ->getResult();
+       $data = $data
+        ->getQuery()
+        ->getResult();
 
-    //     $videos= $this->paginatorInterface->paginate($data, $searchData->page,9);
+        $videos= $this->paginatorInterface->paginate($data, $searchData->page,9);
 
-    //       return $videos;
-        return $this->paginatorInterface->paginate(
-        $queryBuilder->getQuery(),
-        $searchData->page ?? 1, // caso não tenha página no SearchData
-        9
-    );
+
+        return $videos;
+
        }
 }

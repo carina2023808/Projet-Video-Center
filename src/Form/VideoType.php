@@ -23,15 +23,13 @@ class VideoType extends AbstractType
             ->add('description', TextType::class, [
                 'label' => 'videoForm.description',
             ])
-            // Caso queira exibir datas, descomente e use DateTimeType ou DateType
-            // ->add('createdAt', DateTimeType::class, [
-            //     'widget' => 'single_text',
-            // ])
-            // ->add('updatedAt', DateTimeType::class, [
-            //     'widget' => 'single_text',
-            // ])
+           ->add('premiumVideo', null, [
+                'label' => 'videoForm.premiumVideo',
+                'required' => false,
+            ])
             ->add('save', SubmitType::class, [
                 'label' => 'recipeForm.save',
+
             ])
         ;
     }

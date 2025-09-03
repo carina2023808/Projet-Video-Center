@@ -27,73 +27,45 @@ final class VideoController extends AbstractController
         TranslatorInterface $translator
     ): Response {
 
-        // barra de recherch
-      $searchData = new SearchData();
-      $searchData->page = $request->query->getInt('page', 1);
-
-
-        $form = $this->createForm(SearchType::class, $searchData);
-     $form->handleRequest($request);
-
-    $videos = $repository->findBySeach($searchData);
-
-    return $this->render('video/index.html.twig', [
-        'form' => $form->createView(),
-        'videos' => $videos,
-        'videoTotal' => $videos->getTotalItemCount(), // pega total direto do paginator
-    ]);
-
-
-
-
-         if ($form->isSubmitted() && $form->isValid()) {
-            // dd($searchData);
-        }
-
         // Verificar email verificado do usuário logado (se houver)
         if ($this->getUser()) {
             /**
-             *  @var User $user
+             *  @var User
              *  */
-            // $user = $this->getUser();
-            // if (!$user->isVerified()) {
-            //     $this->addFlash('info', $translator->trans('videoController.emailNotVerified'));
-            // }
+            $user = $this->getUser();
+            if (!$user->isVerified()) {
+                $this->addFlash('info', $translator->trans('videoController.emailNotVerified'));
+            }
         }
 
 
-
+        //pagination
         $data = $repository->findAll();
         $videoTotal = sizeof($data);
         $videos = $paginatorInterface->paginate(
             $data,
             $request->query->getInt('page', 1),
-            6
+            9
         );
 
 
-           // barra de recherch
+        // barra de recherch
         $searchData = new SearchData();
         $form = $this->createForm(SearchType::class, $searchData);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $searchData->page = $request->query->getInt('page', 1);
-            // $videosList = $repository->findBySearch($searchData);
-        }
-        // else {
-        //     $videosList = $repository->findAll();
-        // }
-       $videos = $repository->findBySeach($searchData);
-       $videoTotal = sizeof($videos);
+            $videosList = $repository->findBySearch($searchData);
+            $videoTotal = sizeof($videosList);
 
-         return $this->render('video/index.html.twig', [
-                'form' => $form,
-                'videos' => $videos,
+            return $this->render('video/index.html.twig', [
+                'form' => $form->createView(),
+                'videos' => $videosList,
                 'videoTotal' => $videoTotal,
+              
             ]);
 
-
-
+        }
 
         return $this->render('video/index.html.twig', [
             'form' => $form->createView(),
@@ -174,8 +146,8 @@ final class VideoController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $video->setUser($user)
-                  ->setCreatedAt(new DateTimeImmutable())
-                  ->setUpdatedAt(new DateTimeImmutable());
+                ->setCreatedAt(new DateTimeImmutable())
+                ->setUpdatedAt(new DateTimeImmutable());
 
             $em->persist($video);
             $em->flush();
@@ -201,11 +173,11 @@ final class VideoController extends AbstractController
                 return $this->redirectToRoute('app_video_index');
             }
             if ($user->getEmail() !== $video->getUser()->getEmail()) {
-               $this->addFlash("error", "You must to be " . $video->getUser()->getEmail() . " to delete this Video !");
+                $this->addFlash("error", "You must to be " . $video->getUser()->getEmail() . " to delete this Video !");
                 return $this->redirectToRoute('app_video_index');
             }
         } else {
-            $this->addFlash("error", "You must login to edit a Recipe !");
+            $this->addFlash("error", "You must login to delete a Recipe !");
             return $this->redirectToRoute("app_login");
         }
 
@@ -214,10 +186,9 @@ final class VideoController extends AbstractController
         $em->remove($video);
         $em->flush();
 
-        $this->addFlash('info',' La Video ' . $title(). ' a été supprimée avec succès.');
-    $translator->trans('videoController.delete.success',);
+        $this->addFlash('info', ' La Video ' . $video->getTitle() . ' a été supprimée avec succès.');
+        $translator->trans('videoController.delete.success',);
 
         return $this->redirectToRoute('app_video_index');
     }
 }
-

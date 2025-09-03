@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\VideoRepository;
 use App\Entity\User;
+use App\Validator\InappropriateWords;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -22,6 +23,7 @@ class Video
     #[ORM\Column]
     private ?int $id = null;
 
+    #[InappropriateWords()]
     #[ORM\Column(length: 50)]
     #[Assert\NotBlank]
     private ?string $title = null;
@@ -29,7 +31,8 @@ class Video
     #[ORM\Column(length: 500)]
     #[Assert\NotBlank]
     private ?string $videoLink = null;
-
+    
+    #[InappropriateWords()]
     #[ORM\Column(type: Types::TEXT)]
     #[Assert\NotBlank]
     private ?string $description = null;

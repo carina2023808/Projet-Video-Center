@@ -12,7 +12,7 @@ navBar.login: 'Se connecter'
 navBar.addRecipe: 'Ajouter une vidéo'
 navBar.account: 'Mon compte'
 navBar.logout: 'Se déconnecter'
-navBar.video: 'Accueil'
+navBar.video: Accueil
 navBar.addVideo: 'Ajouter une vidéo'
 registrationForm.title: Inscription
 registrationForm.firstname: Prénom
@@ -37,7 +37,6 @@ recipeController.success.createRecipe2: 'Date de création du compte'
 'Sign in': 'Se connecter'
 'Not registered yet?': 'Pas encore inscrit ?'
 'Create an accout': 'Créer un compte'
-# accountShow.profile: 'Mon profil'
 accountShow.EditAccount: 'Modifier le compte'
 accountShow.Accountcreatedon: 'Compte créé le'
 'Account successfuly updated !': 'Compte mis à jour avec succès !'
@@ -83,5 +82,5 @@ security.login.not_registered: 'Pas encore inscrit ?'
 security.login.create_account: 'Créer un compte'
 'Agree terms': "J'accepte les termes et conditions"
 Password: 'Mot de passe'
-accountShow.profil: 'Mon profil'
-welcome.videoListPart1: Bienvenue dans la liste des vidéos
+welcome.videoListPart1: 'Bienvenue dans la liste des vidéos'
+accountShow.profile: 'Mon profil'
